@@ -4,9 +4,9 @@
   "description": "BACK-END DEVELOPER - BUSINESS CASE - Chibuike Vincent",
   "main": "index.js",
   "scripts": {
-    "start:dev": "npx ts-node src/index.ts",
+    "start": "npx ts-node src/index.ts",
     "build": "npx tsc",
-    "start:prod": "npx tsc && node dist/index.js"
+    "start:prod": "node dist/index.js"
   },
   "author": "Chibuike Vincent",
   "license": "ISC",
