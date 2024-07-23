@@ -16,15 +16,11 @@ export const socketServer = async (server: any) => {
 
     socket.on('location_changed', async (data: any) => {
 
-      const { delivery_id, location } = data;
-
-      const obj = await Delivery.findOneAndUpdate({ delivery_id }, { location }, { returnDocument: 'after' })
       const delivery_obj = {
-        data: obj
+        data
       }
 
-      console.log(delivery_obj, "delivery_obj")
-      socket.emit("delivery_updated", delivery_obj);
+      socket.emit("location_updated", delivery_obj);
     });
 
     socket.on('status_changed', async (data: any) => {
@@ -36,8 +32,8 @@ export const socketServer = async (server: any) => {
         status
       }
 
-      console.log(obj, "from status_changed")
-      socket.emit("status_updated", delivery_obj);
+      // socket.broadcast.emit("delivery_updated", delivery_obj);
+      socket.emit("delivery_updated", delivery_obj);
     });
 
     socket.on('disconnect', () => {
