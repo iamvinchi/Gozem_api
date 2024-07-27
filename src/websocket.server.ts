@@ -26,7 +26,7 @@ export const socketServer = async (server: any) => {
     socket.on('status_changed', async (data: any) => {
       const { delivery_id, status } = data;
 
-      const obj = await Delivery.findOneAndUpdate({ delivery_id }, { status }, { returnDocument: 'after' })
+      const obj = await Delivery.findOneAndUpdate({ delivery_id }, { status })
       const delivery_obj = {
         data: obj,
         status
